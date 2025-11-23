@@ -1,1 +1,108 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>2048 — Лабораторная 3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="title-block">
+        <h1 class="title">2048</h1>
+        <p class="subtitle">WEB 2025. Лабораторная №3</p>
+      </div>
+      <div class="score-panel">
+        <div class="score-box">
+          <span class="score-label">Счет</span>
+          <span id="score-value" class="score-value">0</span>
+        </div>
+        <div class="score-box">
+          <span class="score-label">Рекорд</span>
+          <span id="best-value" class="score-value">0</span>
+        </div>
+        <div class="btn-group">
+          <button id="btn-new" type="button" class="btn primary">Новая игра</button>
+          <button id="btn-undo" type="button" class="btn">Отменить</button>
+          <button id="btn-leaderboard" type="button" class="btn">Лидеры</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+   
+      <div id="game-container" class="game-container">
+        <div id="board-background" class="board-background">
+        
+        </div>
+        <div id="tiles-layer" class="tiles-layer">
+         
+        </div>
+      </div>
+
+     
+      <div id="mobile-controls" class="mobile-controls">
+        <div class="row">
+          <button type="button" class="ctrl-btn" data-dir="up">▲</button>
+        </div>
+        <div class="row">
+          <button type="button" class="ctrl-btn" data-dir="left">◀</button>
+          <button type="button" class="ctrl-btn" data-dir="down">▼</button>
+          <button type="button" class="ctrl-btn" data-dir="right">▶</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+ 
+  <div id="game-over-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <h2 class="modal-title">Игра окончена</h2>
+      <p id="game-over-msg" class="modal-text">Ходов больше нет.</p>
+
+      <div id="save-score-block" class="save-score-block">
+        <label for="player-name" class="form-label">Ваше имя для таблицы лидеров:</label>
+        <input id="player-name" type="text" class="text-input" maxlength="32" placeholder="Введите имя" />
+        <button id="btn-save-score" type="button" class="btn primary full-width">Сохранить результат</button>
+      </div>
+
+      <p id="score-saved-msg" class="info-msg hidden">Ваш рекорд сохранен.</p>
+
+      <div class="modal-actions">
+        <button id="btn-restart" type="button" class="btn primary">Начать заново</button>
+        <button id="btn-close-gameover" type="button" class="btn">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="leaderboard-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content large">
+      <h2 class="modal-title">Таблица лидеров</h2>
+      <p class="modal-text">Хранятся последние 10 лучших сессий на этом устройстве.</p>
+      <div class="table-wrapper">
+        <table class="leaders-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Имя</th>
+              <th>Очки</th>
+              <th>Дата</th>
+            </tr>
+          </thead>
+          <tbody id="leaders-body">
+           
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-actions">
+        <button id="btn-close-leaders" type="button" class="btn primary">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/game.js"></script>
+</body>
+</html>
